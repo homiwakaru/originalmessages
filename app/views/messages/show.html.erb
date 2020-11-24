@@ -1,0 +1,8 @@
+<h1>message詳細</h1>
+
+<p><%= @message.title %></p>
+<p><%= @message.content %></p>
+
+<%= link_to 'Mypageに戻る', mypage_users_path %>
+<%= link_to 'このmessageを編集する', edit_message_path(@message) %>
+<%= link_to 'このmessageを削除する', @message, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>

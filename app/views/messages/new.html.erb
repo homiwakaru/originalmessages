@@ -1,0 +1,12 @@
+<h3>message新規作成</h3>
+
+<%= form_with(model: @message, local: true) do |f| %>
+  <%= f.label :title, 'Title' %>
+  <%= f.text_field :title %>
+  <%= f.label :content, 'Message' %>
+  <%= f.text_field :content %>
+
+  <%= f.submit '投稿' %>
+<% end %>
+
+<%= link_to '一覧に戻る', root_path %>

@@ -1,0 +1,12 @@
+<h1>message編集</h1>
+
+<%= form_with(model: @message, local: true) do |f| %>
+  <%= f.label :title, 'title' %>
+  <%= f.text_field :title %>
+  <%= f.label :content, 'message' %>
+  <%= f.text_field :content %>
+
+  <%= f.submit '投稿' %>
+<% end %>
+
+<%= link_to 'Mypageに戻る', mypage_users_path %>
