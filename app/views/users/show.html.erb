@@ -1,14 +1,23 @@
+<h1><%= @user.name %> messages</h1>
 <div class="row">
-  <aside class="col-sm-4">
-    <div class="card">
-      <div class="card-header">
-        <h3 class="card-title"><%= @user.name %></h3>
-      </div>
-    </div>
-  </aside>
-  <div class="col-sm-8">
-    <ul class="nav nav-tabs nav-justified mb-3">
-      <li class="nav-item"><a href="#" class="nav-link">messages</a></li>
+  <div class="col-md-10">
+    <table class="table table-striped">
+       <thead calss="thread-light">
+          <tr>
+            <th>Title</th>
+            <th>Message</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @messages.each do |message| %>
+            <tr>
+              <td><%= message.title %></td>
+              <td><%= message.content %></td>
+              <td><%= link_to'Edit', edit_message_path(message)%> </td>
+              <td><%= link_to'Delete', message_path(message), method: :delete, data:{ confirm: 'Sure?' } %></td>
+            </tr>
+          <% end %>
+         </tbody>
+    </table>  
   </div>
-   <%= render 'messages/messages', messages: @messages %>
 </div>

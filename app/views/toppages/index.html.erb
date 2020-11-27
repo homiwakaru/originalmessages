@@ -1,20 +1,25 @@
 <% if logged_in? %>
 <h1>Everyone's messages</h1>
+ <%= link_to 'New message', new_message_path, class: 'btn btn-lg btn-primary' %>
   <div class="row">
-    <aside class="col-sm-8">
-      <ul class="list-unstyled">
-        <% @messages.each do |message| %>
-         <li class="media mb-3">
-           <div class="media-body">  
-            <p class="mb-0"><%= message.title %></p> &gt;<p class="mb-0"><%= message.content %></p>
-           </div>
-          </li>
-         <% end %>
-       </ul> 
-    </aside>
-    <div class="col-sm-4">
-      <%= link_to 'New message', new_message_path, class: 'btn btn-lg btn-primary' %>
-    </div>
+    <div class="col-md-10">
+      <table class="table table-striped">
+        <thead calss="thread-light">
+          <tr>
+            <th>Title</th>
+            <th>Message</th>
+          </tr>
+        <tbody>
+          <% @messages.each do |message| %>
+            <tr>
+              
+              <td><%= message.title %></td>
+              <td><%= message.content %></td>
+               <% end %>
+            </tr>
+        </tbody>
+        </thead>
+    </table>
 <% else %>
    <div class="center jumbotron">
     <div class="text-center">
