@@ -13,8 +13,6 @@
             <tr>
               <td><%= message.title %></td>
               <td><%= message.content %></td>
-              <td><%= link_to'Edit', edit_message_path(message)%> </td>
-              <td><%= link_to'Delete', message_path(message), method: :delete, data:{ confirm: 'Sure?' } %></td>
             </tr>
           <% end %>
          </tbody>
